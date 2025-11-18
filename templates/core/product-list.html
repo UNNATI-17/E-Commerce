@@ -1,0 +1,272 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Listing</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'assets/css/product-list.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/css/deal-of-day.css' %}">
+
+
+</head>
+<body>
+
+<div class="product-page">
+
+  <!-- Sidebar Filters -->
+  <aside class="filters">
+    <div class="filter-box">
+      <h3>By Categories</h3>
+      <ul>
+        <li><input type="checkbox"> Dresses</li>
+        <li><input type="checkbox"> Winter Wear</li>
+        <li><input type="checkbox"> Shoes</li>
+        <li><input type="checkbox"> Accessories</li>
+      </ul>
+    </div>
+
+    <div class="filter-box">
+      <h3>By Vendors</h3>
+      <ul>
+        <li><input type="checkbox"> Zara</li>
+        <li><input type="checkbox"> H&M</li>
+        <li><input type="checkbox"> Nike</li>
+      </ul>
+    </div>
+
+    <div class="filter-box">
+      <h3>By Price</h3>
+      <ul>
+        <li><input type="checkbox"> $0 - $50</li>
+        <li><input type="checkbox"> $50 - $100</li>
+        <li><input type="checkbox"> $100+</li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Product Grid -->
+  <main class="products">
+    <p class="result-count">We found {{ products|length }} items for you!</p>
+
+    <div class="grid">
+      {% for p in products %}
+      <div class="card">
+        {% if p.get_percentage %}
+        <span class="discount">-{{ p.get_percentage }}%</span>
+        {% endif %}
+
+        <img src="{{ p.image.url }}" alt="{{ p.name }}" class="product-img">
+
+        <div class="details">
+          <p class="category">{{ p.category.title }}</p>
+          <h4 class="title">{{ p.name }}</h4>
+          <p class="vendor">By {{ p.vendor.title }}</p>
+
+          <div class="price-box">
+            <span class="new-price">${{ p.price }}</span>
+            {% if p.old_price %}
+            <span class="old-price">${{ p.old_price }}</span>
+            {% endif %}
+          </div>
+
+          <button class="add-btn">Add</button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+
+</div>
+<div class="product-featured">
+
+<h2 class="title">Deal of the day</h2>
+
+<div class="showcase-wrapper has-scrollbar">
+
+    <div class="showcase-container">
+
+    <div class="showcase">
+        
+        <div class="showcase-banner">
+        <img src="{% static './assets/images/products/shampoo.jpg' %}" alt="shampoo, conditioner & facewash packs" class="showcase-img">
+        </div>
+
+        <div class="showcase-content">
+        
+        <div class="showcase-rating">
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+        </div>
+
+        <a href="#">
+            <h3 class="showcase-title">shampoo, conditioner & facewash packs</h3>
+        </a>
+
+        <p class="showcase-desc">
+            Lorem ipsum dolor sit amet consectetur Lorem ipsum
+            dolor dolor sit amet consectetur Lorem ipsum dolor
+        </p>
+
+        <div class="price-box">
+            <p class="price">$150.00</p>
+
+            <del>$200.00</del>
+        </div>
+
+        <button class="add-cart-btn">add to cart</button>
+
+        <div class="showcase-status">
+            <div class="wrapper">
+            <p>
+                already sold: <b>20</b>
+            </p>
+
+            <p>
+                available: <b>40</b>
+            </p>
+            </div>
+
+            <div class="showcase-status-bar"></div>
+        </div>
+
+        <div class="countdown-box">
+
+            <p class="countdown-desc">
+            Hurry Up! Offer ends in:
+            </p>
+
+            <div class="countdown">
+
+            <div class="countdown-content">
+
+                <p class="display-number">360</p>
+
+                <p class="display-text">Days</p>
+
+            </div>
+
+            <div class="countdown-content">
+                <p class="display-number">24</p>
+                <p class="display-text">Hours</p>
+            </div>
+
+            <div class="countdown-content">
+                <p class="display-number">59</p>
+                <p class="display-text">Min</p>
+            </div>
+
+            <div class="countdown-content">
+                <p class="display-number">00</p>
+                <p class="display-text">Sec</p>
+            </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    <div class="showcase-container">
+    
+    <div class="showcase">
+    
+        <div class="showcase-banner">
+        <img src="{% static './assets/images/products/jewellery-1.jpg' %}" alt="Rose Gold diamonds Earring" class="showcase-img">
+        </div>
+    
+        <div class="showcase-content">
+    
+        <div class="showcase-rating">
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+        </div>
+    
+        <h3 class="showcase-title">
+            <a href="#" class="showcase-title">Rose Gold diamonds Earring</a>
+        </h3>
+    
+        <p class="showcase-desc">
+            Lorem ipsum dolor sit amet consectetur Lorem ipsum
+            dolor dolor sit amet consectetur Lorem ipsum dolor
+        </p>
+    
+        <div class="price-box">
+            <p class="price">$1990.00</p>
+            <del>$2000.00</del>
+        </div>
+    
+        <button class="add-cart-btn">add to cart</button>
+    
+        <div class="showcase-status">
+            <div class="wrapper">
+            <p> already sold: <b>15</b> </p>
+    
+            <p> available: <b>40</b> </p>
+            </div>
+    
+            <div class="showcase-status-bar"></div>
+        </div>
+    
+        <div class="countdown-box">
+    
+            <p class="countdown-desc">Hurry Up! Offer ends in:</p>
+    
+            <div class="countdown">
+            <div class="countdown-content">
+                <p class="display-number">360</p>
+                <p class="display-text">Days</p>
+            </div>
+    
+            <div class="countdown-content">
+                <p class="display-number">24</p>
+                <p class="display-text">Hours</p>
+            </div>
+    
+            <div class="countdown-content">
+                <p class="display-number">59</p>
+                <p class="display-text">Min</p>
+            </div>
+    
+            <div class="countdown-content">
+                <p class="display-number">00</p>
+                <p class="display-text">Sec</p>
+            </div>
+            </div>
+    
+        </div>
+    
+        </div>
+    
+    </div>
+    
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+{% endblock %}

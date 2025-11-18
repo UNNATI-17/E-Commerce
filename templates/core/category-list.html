@@ -1,0 +1,79 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Categories</title>
+  <link rel="stylesheet" href="{% static 'assets/css/category-list.css' %}">
+</head>
+<body>
+
+<!-- Category Banner Section -->
+<div class="category-banner">
+  <img src="{% static 'assets/images/banner-4.jpg' %}" alt="Category Banner" class="category-image">
+  <div class="category-text">
+    <h1 class="animated-text">Categories</h1>
+    <p>Explore our wide range of collections</p>
+  </div>
+</div>
+
+<div class="category-wrapper">
+  <div class="category-header">
+    <h2>{{ categories|length }} Categories</h2>
+  </div>
+
+  <div class="category-content">
+
+    <!-- Category Cards -->
+    <div class="category-grid">
+    {% for category in categories %}
+        <div class="category-card">
+        <div class="category-card-image">
+            <img src="{{ category.image.url }}" alt="{{ category.title }}">
+        </div>
+        <h4>{{ category.title }}</h4>
+        <div>
+            <span class="hit-count mr-10">{{ category.product_count }} Product{{ category.product_count|pluralize:"s" }}</span>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <!-- Sidebar Filter -->
+    <div class="category-sidebar">
+      <!-- Search Box -->
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <button type="submit">🔍</button>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="filter-box">
+        <h3>Category</h3>
+        <ul>
+          {% for cat in categories %}
+            <li>{{ cat.title }} <span>({{ cat.product_count }})</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Trending Now -->
+      <div class="trending-box">
+        <h3>Trending Now</h3>
+        <ul>
+          <li>Chen Cardigan<br><small>$99.50</small></li>
+          <li>Black Skirt<br><small>$79.99</small></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
+{% endblock %}
+

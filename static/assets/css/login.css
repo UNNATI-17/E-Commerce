@@ -1,0 +1,97 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: #f5f7fa;
+}
+
+.login-box {
+  display: flex;
+  width: 80%;
+  max-width: 1100px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.left-img {
+  flex: 1;
+}
+
+.left-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.right-form {
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-form h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #223645;
+}
+
+.sub-text {
+  font-size: 14px;
+  margin-bottom: 25px;
+  color: #777;
+}
+
+.sub-text .create-link {
+  color: #1abc9c;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.right-form input[type="email"],
+.right-form input[type="password"] {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f0f4f8;
+  font-size: 15px;
+  outline: none;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.forgot {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.right-form button {
+  width: 100%;
+  padding: 14px;
+  background-color: #223645;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.right-form button:hover {
+  background-color: #1b2c3c;
+}

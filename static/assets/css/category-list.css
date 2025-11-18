@@ -1,0 +1,164 @@
+
+.category-banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.category-text {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  z-index: 2;
+  max-width: 40%;
+  color: #2c3e50;
+  animation: slideIn 1s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+.category-text h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.category-text p {
+  font-size: 18px;
+  color: #555;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.category-wrapper {
+  padding: 40px 60px;
+  background: #fff;
+}
+
+.category-header {
+  margin-bottom: 30px;
+}
+
+.category-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+}
+
+.category-content {
+  display: flex;
+  gap: 40px;
+}
+
+.category-grid {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.category-card {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  transition: 0.3s;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.category-card-image img {
+  max-width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.category-card h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.category-card p,
+.hit-count {
+  font-size: 15px;
+  color: #666;
+}
+
+.category-sidebar {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.search-box {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.search-box button {
+  padding: 10px 15px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+}
+
+.filter-box,
+.trending-box {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.filter-box ul,
+.trending-box ul {
+  padding: 0;
+  list-style: none;
+}
+
+.filter-box li,
+.trending-box li {
+  padding: 6px 0;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+}

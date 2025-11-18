@@ -1,0 +1,51 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
+
+<div class="login-wrapper">
+  <div class="login-box">
+    <!-- Left image -->
+    <div class="left-img">
+      <img src="{% static 'assets/images/login-side.jpg' %}" alt="Login Image">
+    </div>
+
+    <!-- Right form -->
+    <div class="right-form">
+      <h2>Login</h2>
+        <p class="sub-text">
+          Don’t have an account? 
+          <a href="{% url 'userauths:signup' %}" class="create-link">Create here</a>
+        </p>
+
+        <style>
+        .create-link {
+          color: blue;
+          text-decoration: underline;
+          cursor: pointer;
+          transition: color 0.3s ease;
+        }
+
+        .create-link:active {
+          color: red;
+        }
+        </style>
+
+
+      <form method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="password" name="password" placeholder="Enter your password" required>
+
+        <div class="options">
+          <label><input type="checkbox" name="remember"> Remember me</label>
+          <a href="#" class="forgot">Forgot password?</a>
+        </div>
+
+        <button type="submit">Log in</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
